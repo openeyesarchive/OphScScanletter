@@ -8,7 +8,7 @@ class m130118_143751_event_type_OphScScanletter extends CDbMigration
 		// create an event_type entry for this event type name if one doesn't already exist
 		if (!$this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphScScanletter'))->queryRow()) {
 			$group = $this->dbConnection->createCommand()->select('id')->from('event_group')->where('name=:name',array(':name'=>'Scans'))->queryRow();
-			$this->insert('event_type', array('class_name' => 'OphScScanletter', 'name' => 'Scan: letter','event_group_id' => $group['id']));
+			$this->insert('event_type', array('class_name' => 'OphScScanletter', 'name' => 'Scan: Letter','event_group_id' => $group['id']));
 		}
 		// select the event_type id for this event type name
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('class_name=:class_name', array(':class_name'=>'OphScScanletter'))->queryRow();
